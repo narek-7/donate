@@ -1,3 +1,6 @@
+import { Settings } from "../core/constants/settings";
+import * as Utils from "../core/utils/index";
+
 export class DonateList {
 
 	constructor(donates) {
@@ -19,16 +22,19 @@ export class DonateList {
 
 	updateDonates(updatedDonates) {
 		const donatesList = document.querySelector(".donates-container__donates");
-		donatesList.removeChildren();
+		while (donatesList.hasChildNodes()) {
+			donatesList.removeChild(donatesList.firstChild);
+		}
 		updatedDonates.forEach(donate => donatesList.append(this.#getDonatesItems(donate)));
 	}
 
 	#getDonatesItems(item) {
+
 		const donateItem = document.createElement("div");
 		donateItem.classList.add("donate-item");
 		const donationAmount = document.createElement("b");
-		donationAmount.append(item.amount, "$");
-		donateItem.append(item.date, " - ", donationAmount);
+		donationAmount.append(item.amount, Settings.currency);
+		donateItem.append(Utils.getFormattedTime(item.date), " - ", donationAmount);
 		return donateItem;
 	};
 }
