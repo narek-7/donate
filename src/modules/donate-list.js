@@ -1,5 +1,6 @@
 import { Settings } from "../core/constants/settings";
 import * as Utils from "../core/utils/index";
+// test 2
 
 export class DonateList {
 
@@ -29,7 +30,6 @@ export class DonateList {
 	}
 
 	#getDonatesItems(item) {
-
 		const donateItem = document.createElement("div");
 		donateItem.classList.add("donate-item");
 		const donationAmount = document.createElement("b");
