@@ -1,4 +1,5 @@
 import { Settings as set } from "../core/constants/settings";
+//test
 
 export class DonateForm {
 	#donateFormBlock;
